@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Power Automate 플로우 실패율 개선 | 최민섭</title>
+<meta name="description" content="인계받은 Power Automate 플로우의 작동 과정에서 찾은 오류를 단계별로 수정해, 플로우 실행 건 중 실패 비율을 15~20%에서 3% 미만으로 줄인 사례">
+<meta name="theme-color" content="#0D0D0E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D0D0E'/%3E%3Ctext x='16' y='23' font-family='Arial' font-weight='700' font-size='19' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="stylesheet" href="../assets/case.css?v=34">
+<link rel="stylesheet" href="../assets/vercel-types.css?v=4">
+</head>
+<body>
+<a class="skip" href="#flow">본문으로 건너뛰기</a>
+
+<nav class="top" aria-label="주요 메뉴">
+  <b><a href="../index.html">최민섭</a></b>
+  <a href="../index.html#work">KEY PROJECTS</a><a class="opt" href="../index.html#contact">CONTACT</a>
+</nav>
+
+<div class="c-hero-wrap">
+  <header class="c-hero g">
+    <h1><span class="ln">단계별 오류 수정을 통한</span><span class="ln">Power Automate</span><span class="ln">플로우 실패율 개선</span></h1>
+    <dl class="meta">
+      <div><dt>기간</dt><dd>2024.09 - 2026.07</dd></div>
+      <div><dt>역할</dt><dd>플로우 유지보수 및 오류 수정<br>사내 2차 기술지원</dd></div>
+      <div><dt>대상</dt><dd>교육 프로그램 신청자 및 내부 관계자</dd></div>
+      <div><dt>도구</dt><dd>Power Automate, MS Forms, MS Lists, MS Teams</dd></div>
+    </dl>
+    <div class="c-metric">
+      <span>플로우 실행 건 중 실패 비율</span>
+      <strong><s>15~20%</s>3% 미만</strong>
+    </div>
+  </header>
+</div>
+
+<main class="vb">
+  <section class="sec vs" id="flow" aria-labelledby="h-flow">
+    <div class="g hd2">
+      <h2 class="vh" id="h-flow">실행 건 중 15~20%가 실패하던 신청 안내 플로우</h2>
+      <div class="vt">
+        <p class="lead">인계받은 플로우는 신청서의 항목이 MS Lists에 자동으로 기록되고, 버튼으로 안내 메일을 보내면 발송 단계가 상태 값으로 바뀌어 진행 상황을 추적하는 구조였습니다. <b>플로우 실행 건 중 15~20%는 실패했습니다.</b></p>
+        <dl>
+          <dt>플로우의 역할</dt><dd>신청 이후 안내 메일의 중복 수신과 누락 방지</dd>
+        </dl>
+      </div>
+    </div>
+    <figure>
+      <div class="lanes c4" role="img" aria-label="인계받은 신청 안내 플로우. 신청서 제출, MS Lists 자동 기록, 버튼으로 안내 메일 발송, 발송 단계 상태 변경 순서입니다.">
+        <div class="lane">
+          <b>인계받은 신청 안내 플로우</b>
+          <ol>
+            <li>신청서 제출</li>
+            <li>MS Lists 자동 기록</li>
+            <li>버튼으로 안내 메일 발송</li>
+            <li>발송 단계 상태 변경<small>어느 단계 메일까지 보냈는지 추적</small></li>
+          </ol>
+        </div>
+      </div>
+      <figcaption class="cap2">설명을 위해 재구성한 도식입니다.</figcaption>
+    </figure>
+  </section>
+
+  <section class="sec vs" id="fix" aria-labelledby="h-fix">
+    <div class="g hd2">
+      <h2 class="vh" id="h-fix">작동 과정에서 찾아 단계별로 고친 오류</h2>
+      <div class="vt">
+        <p class="lead">플로우 단계를 직접 살펴보며 작동 원리를 익혔고, 직원들이 플로우 문제를 겪으면 1차로 원인을 확인했습니다. <b>작동 과정에서 찾은 문제를 보고한 뒤 해당 단계를 수정했습니다.</b></p>
+      </div>
+    </div>
+    <figure>
+      <div class="lanes c4" role="img" aria-label="신규 기수 등록 오류. 확정 전 그룹 이름으로 설계, 테스트 전 그룹 이름 변경, 자동 메일 미수신, 해당 단계의 그룹 이름 재설정 순서입니다.">
+        <div class="lane">
+          <b>신규 기수 등록 오류</b>
+          <ol>
+            <li>확정 전 그룹 이름으로 설계</li>
+            <li>테스트 전 그룹 이름 변경</li>
+            <li>자동 메일 미수신<small>그룹 소속 인원에게 가야 할 메일</small></li>
+            <li class="wait">해당 단계의 그룹 이름 재설정</li>
+          </ol>
+        </div>
+      </div>
+    </figure>
+    <div class="g judge">
+      <div>
+        <b>원인과 해결</b>
+        <p class="body">전문가 집중 교육과정 3기 사전등록을 위해 신청서 항목을 수정하고 새 기수 그룹을 연결한 뒤, 그룹 소속 인원에게 가야 할 자동 메일이 수신되지 않았습니다. AI와 오류 로그 및 플로우 단계를 반복해 확인하며 원인을 좁힌 결과, 그룹 이름이 확정되기 전의 이름으로 설계한 단계가 테스트 전에 바뀐 그룹 이름을 따라가지 못한 것이 원인이었습니다. 해당 단계에서 그룹 이름을 다시 설정해 해결했고, 신규 참여자가 등록되면 관계자 전원에게 Teams 자동 포스트가 올라가도록 플로우를 보완했습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec vs" id="result" aria-labelledby="h-result">
+    <div class="g hd2">
+      <h2 class="vh" id="h-result">단계별 수정 후 플로우 실패율</h2>
+      <div class="vt">
+        <p class="lead">유지보수 기간 동안 단계별 오류 수정을 이어 간 결과, <b>플로우 실행 건 중 실패 비율이 15~20%에서 3% 미만으로 감소했습니다.</b> 이후 사내 2차 기술지원을 맡았습니다.</p>
+      </div>
+    </div>
+    <figure class="al-res">
+      <div class="tbar" role="img" aria-label="20%를 한 줄로 놓은 축척에서 기존 실패 비율은 15~20%, 단계별 수정 후는 3% 미만입니다.">
+        <p class="tlab">플로우 실행 건 중 실패 비율</p>
+        <div class="trow past">
+          <p><span>인계 당시</span><strong>15~20%</strong></p>
+          <div class="tb"><i style="left:0;width:75%"></i><i class="maybe" style="left:75%;width:25%"></i></div>
+        </div>
+        <div class="trow">
+          <p><span>단계별 수정 후</span><strong>3% 미만</strong></p>
+          <div class="tb"><i style="left:0;width:15%"></i></div>
+        </div>
+        <div class="axis" aria-hidden="true"><span style="left:0">0</span><span style="left:25%">5%</span><span style="left:50%">10%</span><span style="left:75%">15%</span><span style="left:100%">20%</span></div>
+      </div>
+      <figcaption class="cap2">20%를 한 줄로 놓은 축척입니다. 인계 당시 값은 15~20% 범위로, 15%를 넘는 부분을 옅게 표시했습니다.</figcaption>
+    </figure>
+  </section>
+
+  <section class="sec vs" id="more" aria-labelledby="h-more">
+    <div class="g hd2">
+      <h2 class="vh" id="h-more">그 밖의 자동화</h2>
+      <div class="vt">
+        <p class="lead">유지보수와 함께, <b>반복되는 입력과 발송을 Power Automate 흐름으로 구축했습니다.</b></p>
+      </div>
+    </div>
+    <div class="g under">
+      <div><b>비용 증빙 저장</b><p>증빙을 폴더에 직접 저장하고 원장에 입력하던 비용 처리를, MS Forms 제출 한 번으로 원장 기록과 증빙 저장이 되도록 구축했습니다(2024.11).</p></div>
+      <div><b>신청 및 영수증 메일</b><p>전문가 집중 교육과정 2기 때 기존 플로우를 참고해, 신청 접수 시 안내 메일과 송금 확인 후 영수증이 자동 발송되는 플로우를 생성했습니다.</p></div>
+      <div><b>일일 피드백 폼</b><p>5일 교육과정의 피드백 폼 제출 시 응답이 엑셀과 리스트에 자동 등록되고, 제출자에게 확인 메일이 발송되도록 구성했습니다.</p></div>
+    </div>
+  </section>
+
+  <nav class="next vc" aria-label="다음 프로젝트"><span>다음 프로젝트</span><a href="figma-template.html">Figma 홍보물 템플릿 구축</a></nav>
+</main>
+<footer class="foot"><span>© 2026 최민섭</span><a href="../index.html#work">KEY PROJECTS</a></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="../assets/case.js?v=6"></script>
+</body>
+</html>
